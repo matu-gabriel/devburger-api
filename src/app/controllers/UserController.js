@@ -14,10 +14,20 @@ class UserContoller {
     try {
       schema.validateSync(req.body, { abortEarly: false });
     } catch (err) {
-      return res.status(401).json({ error: err.errors });
+      return res.status(400).json({ error: err.errors });
     }
 
     const { name, email, password_hash, admin } = req.body;
+
+    const userExists = await User.findOne({
+      where: {
+        email,
+      },
+    });
+
+    if (userExists) {
+      return res.status(400).json({ error: "Usuario já existe" });
+    }
 
     const user = await User.create({
       id: v4(),
