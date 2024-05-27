@@ -20,6 +20,12 @@ class User extends Model {
         user.password_hash = await bcrypt.hash(user.password, 10);
       }
     });
+
+    return this;
+  }
+
+  async comparePassword(password) {
+    return bcrypt.compare(password, this.password_hash);
   }
 }
 
