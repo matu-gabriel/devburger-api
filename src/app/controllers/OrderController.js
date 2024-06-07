@@ -60,7 +60,16 @@ class OrderController {
         name: req.userName,
       },
       products: formattedProducts,
+      status: "Em preparação",
     };
+
+    const createdOrder = await Order.create(order);
+
+    return res.json(createdOrder);
+  }
+
+  async index(req, res) {
+    const order = await Order.find();
 
     return res.json(order);
   }
