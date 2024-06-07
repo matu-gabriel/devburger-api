@@ -73,6 +73,29 @@ class OrderController {
 
     return res.json(order);
   }
+
+  async update(req, res) {
+    const schema = Yup.object({
+      status: Yup.string().required(),
+    });
+
+    try {
+      schema.validateSync(req.body, { abortEarly: false });
+    } catch (err) {
+      return res.status(401).json({ error: err.errors });
+    }
+
+    const { id } = req.params;
+    const { status } = req.body;
+
+    try {
+      await Order.updateOne({ _id: id }, { status });
+    } catch (err) {
+      return res.status(401).json({ error: err.messege });
+    }
+
+    return res.json({ messege: "Status atualizado" });
+  }
 }
 
 export default new OrderController();

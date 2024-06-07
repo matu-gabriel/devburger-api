@@ -23,6 +23,7 @@ router.post("/categories", CategoryController.store);
 router.get("/categories", CategoryController.index);
 
 router.post("/orders", OrderController.store);
-router.get("/orders", OrderController.index);
+router.get("/orders/", OrderController.index);
+router.put("/orders/:id", OrderController.update);
 
 export default router;
