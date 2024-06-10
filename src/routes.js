@@ -18,6 +18,7 @@ router.use(authMiddleware);
 
 router.post("/product", upload.single("file"), ProductController.store);
 router.get("/product", ProductController.index);
+router.put("/product/:id", upload.single("file"), ProductController.update);
 
 router.post("/categories", CategoryController.store);
 router.get("/categories", CategoryController.index);
