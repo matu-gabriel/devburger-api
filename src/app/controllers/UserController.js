@@ -26,7 +26,7 @@ class UserContoller {
     });
 
     if (userExists) {
-      return res.status(400).json({ error: "Usuario já existe" });
+      return res.status(409).json({ error: "Usuario já existe" });
     }
 
     const user = await User.create({

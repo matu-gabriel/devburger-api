@@ -20,8 +20,9 @@ router.post("/product", upload.single("file"), ProductController.store);
 router.get("/product", ProductController.index);
 router.put("/product/:id", upload.single("file"), ProductController.update);
 
-router.post("/categories", CategoryController.store);
+router.post("/categories", upload.single("file"), CategoryController.store);
 router.get("/categories", CategoryController.index);
+router.put("/categories/:id", upload.single("file"), CategoryController.update);
 
 router.post("/orders", OrderController.store);
 router.get("/orders/", OrderController.index);
