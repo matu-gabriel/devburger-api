@@ -1,4 +1,4 @@
-import User from "../models/User";
+import User from "../models/User.mjs";
 import { v4 } from "uuid";
 import * as Yup from "yup";
 
