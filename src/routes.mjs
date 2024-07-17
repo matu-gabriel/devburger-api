@@ -11,6 +11,10 @@ import OrderController from "./app/controllers/OrderController";
 const router = new Router();
 const upload = multer(multerConfig);
 
+router.get("/", (req, res) => {
+  return res.json({ messege: "Hello my first API" });
+});
+
 router.post("/users", UserController.store);
 router.post("/session", SessionController.store);
 
