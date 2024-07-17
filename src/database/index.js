@@ -10,11 +10,13 @@ const models = [User, Product, Category];
 class Database {
   constructor() {
     this.init();
-    this.mongo();
+    // this.mongo();
   }
 
   init() {
-    this.connection = new Sequelize(configDatabase);
+    this.connection = new Sequelize(
+      "postgresql://postgres:eGDCuvXUXtlymmplHkbsBotFUKjxuegY@roundhouse.proxy.rlwy.net:56816/railway"
+    );
     models
       .map((model) => model.init(this.connection))
       .map(
