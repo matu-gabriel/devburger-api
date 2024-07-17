@@ -10,7 +10,7 @@ const models = [User, Product, Category];
 class Database {
   constructor() {
     this.init();
-    // this.mongo();
+    this.mongo();
   }
 
   init() {
@@ -26,7 +26,7 @@ class Database {
 
   mongo() {
     this.mongoConnection = mongoose.connect(
-      "mongodb://localhost:27017/devburger"
+      "mongodb://mongo:OnpwourOqkdzacViLKMlpokizzHCPAlD@monorail.proxy.rlwy.net:28921"
     );
   }
 }
